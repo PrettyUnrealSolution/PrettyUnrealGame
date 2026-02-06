@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: build
         shell: powershell -ExecutionPolicy Bypass -Command "{0}"
+        env:
+          UE_ROOT: ${{ vars.UE_ROOT }}
         run: |
           $repoName = ($env:GITHUB_REPOSITORY -split '/')[1]
           Set-Location "G:\$repoName"
