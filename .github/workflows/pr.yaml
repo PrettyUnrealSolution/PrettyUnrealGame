@@ -14,8 +14,9 @@ jobs:
         shell: powershell -ExecutionPolicy Bypass -Command "{0}"
         env:
           UE_ROOT: ${{ vars.UE_ROOT }}
+          WORKDIR: ${{ vars.WORKDIR }}
         run: |
-          $repoName = ($env:GITHUB_REPOSITORY -split '/')[1]
-          Set-Location "G:\$repoName"
+          Set-Location "G:\$WORKDIR"
           pwd
+          git pull
           .\Scripts\BuildObriy.bat -Actions PackArchive -Configuration Development
