@@ -7,10 +7,12 @@ on:
   workflow_dispatch:
 
 jobs:
-  hello:
+  build:
     runs-on: self-hosted
     steps:
-      - name: Print hello
+      - name: build
         shell: powershell -ExecutionPolicy Bypass -Command "{0}"
         run: |
+          $repoName = ($env:GITHUB_REPOSITORY -split '/')[1]
+          Set-Location "G:\$repoName"
           pwd
