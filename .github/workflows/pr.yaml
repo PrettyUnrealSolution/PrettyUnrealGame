@@ -27,7 +27,7 @@ jobs:
           $workDir = Join-Path "G:\" $repoName
           Set-Location "$workDir"
           pwd
-          git config --global credential.helper ""
+          whoami
           git config --global --add safe.directory "$workDir"
           git remote set-url origin "https://x-access-token:$env:GITHUB_TOKEN@github.com/$env:GITHUB_REPOSITORY.git"
           git pull
