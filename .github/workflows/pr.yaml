@@ -3,7 +3,7 @@ name: pr
 on:
   push:
     branches:
-      - ${{ github.event.repository.default_branch }}
+      - dev
   workflow_dispatch:
 
 jobs:
