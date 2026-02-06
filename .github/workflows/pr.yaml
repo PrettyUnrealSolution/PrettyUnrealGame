@@ -18,8 +18,8 @@ jobs:
         shell: powershell -ExecutionPolicy Bypass -Command "{0}"
         run: |
           $ErrorActionPreference = 'Stop'
-          git config --global --add safe.directory "G:/"
+          git config --global --add safe.directory "$env:WORKDIR"
           Set-Location "$env:WORKDIR"
           pwd
           git pull
-          .\Scripts\BuildObriy.bat -Actions PackArchive -Configuration Development
+          .\Scripts\BuildObriy.ps1 -Actions PackArchive -Configuration Development
