@@ -2,8 +2,8 @@ name: pr
 
 on:
   push:
-    branches:
-      - dev
+  schedule:
+    - cron: '0 3 * * *'
   workflow_dispatch:
 
 permissions:
