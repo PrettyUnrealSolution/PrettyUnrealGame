@@ -28,7 +28,7 @@ jobs:
           git config --global --add safe.directory "$workDir"
           Set-Location "$env:WORKDIR"
           $repoUrl = "https://x-access-token:$env:GITHUB_TOKEN@github.com/$env:GITHUB_REPOSITORY.git"
-          git remote set-url origin $repoUrl          
+          git remote set-url origin $repoUrl
           git pull
           if ($LASTEXITCODE -ne 0) { throw "git pull failed" }
           .\Scripts\BuildObriy.ps1 -Actions PackArchive -Configuration Development
