@@ -6,17 +6,18 @@ on:
       - dev
   workflow_dispatch:
 
+env:
+  UE_ROOT: ${{ vars.UE_ROOT }}
+  WORKDIR: ${{ vars.WORKDIR }}
+
 jobs:
   build:
     runs-on: self-hosted
     steps:
       - name: build
         shell: powershell -ExecutionPolicy Bypass -Command "{0}"
-        env:
-          UE_ROOT: ${{ vars.UE_ROOT }}
-          WORKDIR: ${{ vars.WORKDIR }}
         run: |
-          Set-Location "G:\$WORKDIR"
+          Set-Location G:\"$WORKDIR"
           pwd
           git pull
           .\Scripts\BuildObriy.bat -Actions PackArchive -Configuration Development
