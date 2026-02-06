@@ -16,3 +16,4 @@ jobs:
           $repoName = ($env:GITHUB_REPOSITORY -split '/')[1]
           Set-Location "G:\$repoName"
           pwd
+          .\Scripts\BuildObriy.bat
