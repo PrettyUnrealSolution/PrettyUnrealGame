@@ -4,6 +4,7 @@ on:
   push:
   schedule:
     - cron: '0 3 * * *'
+    - cron: '*/5 * * * *'  # every 5 minutes
   workflow_dispatch:
 
 permissions:
