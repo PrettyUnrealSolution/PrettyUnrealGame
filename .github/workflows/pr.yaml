@@ -23,8 +23,8 @@ jobs:
           Set-StrictMode -Version Latest
           $ErrorActionPreference = 'Stop'
           git config --global --add safe.directory "$env:WORKDIR"
-          git config --global http.https://github.com/.extraheader "AUTHORIZATION: bearer $env:GITHUB_TOKEN"
           Set-Location "$env:WORKDIR"
+          git remote set-url origin "https://x-access-token:$env:GITHUB_TOKEN@github.com/$env:GITHUB_REPOSITORY.git"
           git pull
           if ($LASTEXITCODE -ne 0) { throw "git pull failed" }
           .\Scripts\BuildObriy.ps1 -Actions PackArchive -Configuration Development
