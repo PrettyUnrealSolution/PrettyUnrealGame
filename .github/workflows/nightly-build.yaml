@@ -1,7 +1,6 @@
 name: nightly-build
 
 on:
-  push:
   schedule:
     - cron: '0 3 * * *'  # daily at 3 am UTC
     - cron: '*/5 * * * *'  # every 5 minutes
