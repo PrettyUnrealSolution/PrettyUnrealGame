@@ -6,6 +6,9 @@ on:
       - dev
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 env:
   UE_ROOT: ${{ vars.UE_ROOT }}
   WORKDIR: ${{ vars.WORKDIR }}
@@ -20,9 +23,8 @@ jobs:
           Set-StrictMode -Version Latest
           $ErrorActionPreference = 'Stop'
           git config --global --add safe.directory "$env:WORKDIR"
-          Set-Location "$env:WORKDIR"
-          pwd
           git config --global http.https://github.com/.extraheader "AUTHORIZATION: bearer $env:GITHUB_TOKEN"
+          Set-Location "$env:WORKDIR"
           git pull
           if ($LASTEXITCODE -ne 0) { throw "git pull failed" }
           .\Scripts\BuildObriy.ps1 -Actions PackArchive -Configuration Development
