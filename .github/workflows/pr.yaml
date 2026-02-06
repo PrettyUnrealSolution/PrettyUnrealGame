@@ -25,10 +25,10 @@ jobs:
           $ErrorActionPreference = 'Stop'
           $repoName = ($env:GITHUB_REPOSITORY -split '/')[1]
           $workDir = Join-Path "G:\" $repoName
+          git config --global --add safe.directory "$workDir"
           Set-Location "$workDir"
           pwd
 #          whoami
-#          git config --global --add safe.directory "$workDir"
 #          git remote set-url origin "https://x-access-token:$env:GITHUB_TOKEN@github.com/$env:GITHUB_REPOSITORY.git"
 #          git pull
 #          if ($LASTEXITCODE -ne 0) { throw "git pull failed" }
