@@ -11,6 +11,6 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: Print hello
-        shell: powershell -ExecutionPolicy Bypass
+        shell: powershell -ExecutionPolicy Bypass -Command "{0}"
         run: |
           pwd
