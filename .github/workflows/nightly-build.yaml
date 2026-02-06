@@ -1,4 +1,4 @@
-name: pr
+name: nightly-build
 
 on:
   push:
