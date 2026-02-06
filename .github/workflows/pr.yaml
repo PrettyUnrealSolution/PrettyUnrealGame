@@ -18,6 +18,8 @@ jobs:
     steps:
       - name: build
         shell: powershell -ExecutionPolicy Bypass -Command "{0}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           Set-StrictMode -Version Latest
           $ErrorActionPreference = 'Stop'
