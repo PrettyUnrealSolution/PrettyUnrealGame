@@ -3,7 +3,7 @@ name: pr
 on:
   push:
   schedule:
-    - cron: '0 3 * * *'
+    - cron: '0 3 * * *'  # daily at 3 am UTC
     - cron: '*/5 * * * *'  # every 5 minutes
   workflow_dispatch:
 
