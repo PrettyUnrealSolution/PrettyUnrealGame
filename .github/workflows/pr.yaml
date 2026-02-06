@@ -17,6 +17,8 @@ jobs:
       - name: build
         shell: powershell -ExecutionPolicy Bypass -Command "{0}"
         run: |
+          $ErrorActionPreference = 'Stop'
+          git config --global --add safe.directory "G:/"
           Set-Location "$env:WORKDIR"
           pwd
           git pull
