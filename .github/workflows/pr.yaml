@@ -24,10 +24,9 @@ jobs:
           $repoName = ($env:GITHUB_REPOSITORY -split '/')[1]
           $workDir = Join-Path "G:\" $repoName
           Set-Location "$workDir"
-          git config --global --add safe.directory "$workDir"
-          Set-Location "$workDir"
           pwd
-          git remote set-url origin "https://x-access-token:$env:GITHUB_TOKEN@github.com/$env:GITHUB_REPOSITORY.git"
-          git pull
-          if ($LASTEXITCODE -ne 0) { throw "git pull failed" }
-          .\Scripts\BuildObriy.ps1 -Actions PackArchive -Configuration Development
+#          git config --global --add safe.directory "$workDir"
+#          git remote set-url origin "https://x-access-token:$env:GITHUB_TOKEN@github.com/$env:GITHUB_REPOSITORY.git"
+#          git pull
+#          if ($LASTEXITCODE -ne 0) { throw "git pull failed" }
+#          .\Scripts\BuildObriy.ps1 -Actions PackArchive -Configuration Development
