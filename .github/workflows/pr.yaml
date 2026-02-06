@@ -26,7 +26,7 @@ jobs:
           $workDir = Join-Path "G:\" $repoName
           Set-Location "$workDir"
           git config --global --add safe.directory "$workDir"
-          Set-Location "$env:WORKDIR"
+          Set-Location "$workDir"
           $repoUrl = "https://x-access-token:$env:GITHUB_TOKEN@github.com/$env:GITHUB_REPOSITORY.git"
           git remote set-url origin $repoUrl
           git pull
